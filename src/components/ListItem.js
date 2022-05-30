@@ -1,15 +1,25 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
-import { windowWidth } from '../utils/Dimensions';
+import {windowWidth} from '../utils/Dimensions';
+import Textview from './TextView';
 
-export default function ListItem({photo, title, subTitle, isFree, price, onPress}) {
+export default function ListItem({
+  photo,
+  title,
+  subTitle,
+  isFree,
+  price,
+  onPress,
+}) {
   return (
-    <View style={{
-      flexDirection:'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: 20,
-    }}>
+    <View
+      style={{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 20,
+      }}>
       <View style={{flexDirection: 'row', alignItems: 'center', flex: 1}}>
         <Image
           source={photo}
@@ -37,21 +47,29 @@ export default function ListItem({photo, title, subTitle, isFree, price, onPress
         </View>
       </View>
 
-      <TouchableOpacity onPress={onPress} style={{
-        backgroundColor:'#0aada8',
-        padding:10,
-        width: 100,
-        borderRadius: 10,
-      }}>
-        <Text style={{
-          color: '#fff',
-          textAlign: 'center',
-          fontFamily: 'Roboto-Medium',
-          fontSize: 14,
+      <TouchableOpacity
+        onPress={onPress}
+        style={{
+          backgroundColor: '#0aada8',
+          padding: 10,
+          width: 100,
+          borderRadius: 10,
         }}>
+        {/* <Text
+          style={{
+            color: '#fff',
+            textAlign: 'center',
+            fontFamily: 'Roboto-Medium',
+            fontSize: 14,
+          }}>
           {isFree == 'Yes' && 'Play'}
           {isFree == 'No' && price}
-        </Text>
+        </Text> */}
+
+        <Textview color={'#fff'} textAlign={'center'} fontSize={14}>
+          {isFree == 'Yes' && 'Play'}
+          {isFree == 'No' && price}
+        </Textview>
       </TouchableOpacity>
     </View>
   );

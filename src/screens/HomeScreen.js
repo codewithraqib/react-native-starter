@@ -36,12 +36,10 @@ export default function HomeScreen({navigation}) {
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-between',
+            // justifyContent: 'space-between',
+            alignItems: 'center',
             marginBottom: 20,
           }}>
-          <Text style={{fontSize: 18, fontFamily: 'Roboto-Medium'}}>
-            Hello John Doe
-          </Text>
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <ImageBackground
               source={require('../assets/images/user-profile.jpg')}
@@ -49,6 +47,15 @@ export default function HomeScreen({navigation}) {
               imageStyle={{borderRadius: 25}}
             />
           </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 18,
+              fontFamily: 'Roboto-Medium',
+              color: 'black',
+              marginLeft: 10,
+            }}>
+            Mufti Faizul Waheed Sb
+          </Text>
         </View>
 
         <View
@@ -75,15 +82,16 @@ export default function HomeScreen({navigation}) {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <Text style={{fontSize: 18, fontFamily: 'Roboto-Medium'}}>
-            Upcoming Games
+          <Text
+            style={{fontSize: 18, fontFamily: 'Roboto-Medium', color: 'black'}}>
+            Newly Uploaded
           </Text>
           <TouchableOpacity onPress={() => {}}>
             <Text style={{color: '#0aada8'}}>See all</Text>
           </TouchableOpacity>
         </View>
 
-        <Carousel
+        {/* <Carousel
           // ref={c => {
           //   this._carousel = c;
           // }}
@@ -93,18 +101,18 @@ export default function HomeScreen({navigation}) {
           itemWidth={300}
           loop={true}
           autoplay={true}
-        />
+        /> */}
 
-        <View style={{marginVertical: 20}}>
+        {/* <View style={{marginVertical: 20}}>
           <CustomSwitch
             selectionMode={1}
             option1="Free to play"
             option2="Paid games"
             onSelectSwitch={onSelectSwitch}
           />
-        </View>
+        </View> */}
 
-        {gamesTab == 1 &&
+        {gamesTab === 1 &&
           freeGames.map(item => (
             <ListItem
               key={item.id}
@@ -120,7 +128,7 @@ export default function HomeScreen({navigation}) {
               }
             />
           ))}
-        {gamesTab == 2 &&
+        {/* {gamesTab === 2 &&
           paidGames.map(item => (
             <ListItem
               key={item.id}
@@ -136,7 +144,7 @@ export default function HomeScreen({navigation}) {
                 })
               }
             />
-          ))}
+          ))} */}
       </ScrollView>
     </SafeAreaView>
   );
